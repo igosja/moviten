@@ -1,0 +1,484 @@
+
+@media only screen and (max-width:767px){
+	html,body{
+		height:auto;
+		min-width: 100%;
+		min-width:320px;
+	}
+	img,
+	iframe{
+		max-width: 100%;
+		height:auto!important;
+	}
+	.wrap{
+		width:auto;
+		margin:0 auto;
+		padding:0 15px;
+		position: relative;
+	}
+
+	.header-top{
+	  height: auto;
+	  padding:20px 0;
+	}
+	.logo{
+		width: 100px;
+		display: block;
+	  position: relative;
+	  top: auto;
+	  left: auto;
+	  margin: 0 auto;
+	}
+	.header-phones{
+	  height: 40px;
+	  padding-left: 40px;
+	  width:370px;
+	  float: none;
+	  line-height: 40px;
+	  margin: 20px auto 0;
+	}
+	.header-top__right{
+	  width: 380px;
+	  float: none;
+	  padding-top: 0px;
+	  margin:20px auto 0;
+	}
+
+	nav {
+	  padding:20px 0;
+	  text-align: center;
+	}
+	.nav-link{
+	  padding: 0 19px 0 12px;
+	}
+	.nav-link:first-of-type{
+		padding-left: 0;
+	}
+	.nav-link:last-of-type{
+		padding-right: 0;
+	}
+
+	.clearfix-footer{
+		display: none;
+	}
+
+	/*================= content ================*/
+	.content_main:before {
+		display: none;
+	}
+	.m-text{
+	  margin-top: 15px;
+	  margin-bottom: 25px;
+	}
+	.b-items{
+	  margin: 0 auto 25px;
+	  width: 600px;
+	}
+	.b-item{
+	  margin: 0 10px 20px!important;
+	}
+
+	/*================= in pages =================*/
+	.breadchambs {
+	  line-height: 15px;
+	  color: #8e8e8e;
+	  font-size: 12px;
+	}
+	.m-title {
+	  line-height: 24px;
+	  font-size: 21px;
+	  letter-spacing: 1px;
+	}
+
+	/*================= usluga =================*/
+	.pager{
+	  margin-top: 20px;
+	  padding-top: 20px;
+	}
+	.pager__prev{
+	  font-size:0px;
+	}
+	.pager__next{
+	  font-size:0;
+	}
+
+	/*================= about us =================*/
+	.our-team{
+	  width:608px;
+	  margin:0 auto 10px;
+	}
+	.our-team__i{
+	  float: left;
+	  width: 290px;
+	  height: 290px;
+	  margin:0 7px 10px;
+	  position: relative;
+	}
+
+	/*================= uslugi =================*/
+	.uslugi-b{
+	  width: 610px;
+	  margin: 0 auto 25px;
+	}
+	.uslugi-b__i{
+	  margin:0 7px 10px;
+	}
+	.uslugi-b__i__in .uslugi-b__i__btn {
+	  max-height: 200px;
+	  margin-bottom: 20px;
+	}
+
+	/*================= portfolio =================*/
+	.b-portfolio__menu {
+	  text-align: center;
+	  margin-top: 25px;
+	  margin-bottom: 25px;
+	}
+	.b-portfolio__menu__i {
+	  display: block;
+		padding-bottom: 0;
+	  border-bottom: 0;
+	  margin: 0 0 15px;
+	}
+
+/*================= project =================*/
+
+	.slider{
+	  width: 100%;  
+	  margin: 20px 0;    
+	  text-align: center;
+	}
+	.slider .slick-slide img{
+	  max-width: 767px;
+	  height:auto;
+	  outline:none!important;
+	}
+	.slider .slick-slide{
+	  opacity: 1;
+	  width:auto;
+	  max-width:100%;
+	  text-align: center;
+	}
+
+	.slider-nav{
+	  display: none!important;
+	}
+	/*================= contacts =================*/
+	.contacts-b{
+	  width:460px;
+	  margin: 20px auto 0;
+	}
+	.contacts-b__item{
+	  float:  left;
+	  width: auto; 
+	  height: 100px;  
+	  border-left: 0;
+	  padding-top: 8px; 
+	  padding-left: 40px;
+	  margin-bottom: 20px;	 
+	}
+	.contacts-b__item:nth-of-type(2n){
+		float: right;
+		width: 205px;		
+	}
+	.mab-b{
+	  width:100%;
+	  margin-bottom: 5px;
+	  margin-top: 0;	  
+	  position: relative; 
+	}
+	#map{
+	  width: 100%;  
+	  height: 400px;  
+	}
+	.mab-b__wrap{
+	  width:100%;
+	  height:auto;
+	  position: relative; 
+	  left: auto;  
+	  margin-left: 0;  
+	  top: auto; 
+	}
+	.mab-b__form{
+	  margin:0 auto;
+	  height:450px;
+	}
+
+	/*================= footer =================*/
+	footer {
+		margin-top: 0!important;
+	}
+	.footer-top {
+	  padding: 20px 0;
+	}
+	.footer-soc{
+	  float: none;
+	  width: 140px;
+	  margin:0 auto;
+	}
+
+	.footer-contacts{
+	  float: none;
+	  width: auto;
+	}
+	.footer-phones{
+	  padding-left: 30px;
+	  width: 360px;
+	  float: none;
+		margin:20px auto 0;  
+	}
+	.footer-mail{
+	  display: block;
+	  float: left;
+	  margin-left: 0;
+	  font-size:14px;
+		margin-top: 20px;
+	}
+	.to-top{
+		margin-top: -25px;
+	}
+
+	.footer-info__copy{
+	  position: relative;
+	  top: auto;
+	  left: auto;
+	  right: auto;
+	}
+	.footer-info__maks {
+	  float: none;
+	  width:230px;
+	  margin:15px auto 0; 
+	}
+	.footer-info__maks div {
+	  margin-top: 3px;
+	}
+
+	.of-form {
+	  width: 280px;
+	  position: absolute;
+	  top: 50px;
+	  margin-left: -140px;
+	  border: 5px solid #fff;
+	  padding: 20px 20px 20px 20px;
+	}
+	.of-form__title {
+	  font-size: 19px;
+	  padding-bottom: 25px;
+	  margin-bottom: 15px;
+	  letter-spacing: .6px;
+	}
+	.of-form__title:after {
+	  margin-left: -115px;
+	  width: 230px;
+	  background: url(../img/sprite-n.png) -24px -300px no-repeat;
+	}
+	.of-input {
+	  height: 40px;
+	}
+	.of-form__textarea {
+	  height: 100px;
+	}
+	.form-thanks {
+	    padding: 20px;
+	}
+	.of-close {
+	  display: block;
+	  position: absolute;
+	  right: -25px;
+	  top: -25px;
+	  width: 23px;
+	  height: 23px;
+	  background: url(../img/sprite-n.png) 0 -335px no-repeat;
+	}	
+	.jqui-select .ui-state-default {
+	  height: 40px;
+	}
+	.jqui-select .ui-selectmenu-text {
+	  padding: 0.7em 2.8em 0.7em 15px !important;
+	}
+
+	.m-best .wrap{
+		padding:0;
+	}
+
+	.slider-main{
+	  width: 100%;  
+	}
+	.slider-main .slick-slide img{
+	  max-width: 767px;
+	  height:auto;
+	  outline:none!important;
+	}
+	.slider-main .slick-slide{
+	  opacity: 1;
+	  width:auto;
+	  max-width:100%;
+	  text-align: center;
+	}	
+}	
+
+
+@media only screen and (max-width:639px){
+	.b-items{
+	  margin: 0 auto 25px;
+	  width: 100%;
+	}	
+	.b-item{
+	  margin: 0 auto 20px!important;		
+	  float: none;
+	}
+
+	/*================= about us =================*/
+	.our-team{
+	  width:100%;
+	  margin:0 auto 10px;
+	}
+	.our-team__i{
+	  float: none;
+	  width: 290px;
+	  height: 290px;
+	  margin:0 auto 10px;
+	  position: relative;
+	}
+
+}	
+
+@media only screen and (max-width:479px){
+	.header-top{
+		width:100%;
+		padding-left:15px;
+		padding-right: 15px;
+		margin-left: -15px;
+	}
+	.header-phones{
+	  box-sizing: border-box;
+	  width:230px;
+	  line-height: 1;
+	  text-align: left;
+	  padding-left: 60px;
+	}
+	.header-phones a{
+		display: block;
+	  font-size:16px;
+	}
+	.header-phones a:first-of-type{
+	  margin-left: 0;
+	  margin-right: 0;
+	  padding-right: 0;
+	  margin-bottom: 8px;
+	  position: relative;
+	}
+	.header-phones a:first-of-type:after{
+	  display: none;
+	}
+	.header-top__right{
+	  width: 230px;
+	  float: none;
+	  margin:20px auto 0;
+	}	
+	.header-email{
+	  margin-top: 0px;
+	  color:#8e8e8e;
+	  font-size:16px; 
+	  font-weight: 300;
+	  letter-spacing: 1.3px;
+	  margin-right: 0;
+	  margin-bottom: 20px;
+	  float: none;
+	  margin-left: -12px;
+	}
+	.jqui-lang{
+		margin-right: 12px;
+	}
+	nav{
+		padding:10px 0 0;
+	}
+	.nav-link{
+	  height: 20px;
+	  width:100%;
+	  margin-left: -15px;
+	  display: block;
+	  line-height: 20px;
+	  font-size: 20px;
+	  letter-spacing: 1px;
+	  padding: 0 15px 10px!important;
+	  margin-bottom: 10px;
+	  border-bottom: 1px solid #d9d9d8; 	
+	}
+	.nav-link:after{
+	  display: none;
+	}
+	.nav-link:last-of-type{
+		margin-bottom: 0;
+	}
+
+	/*================= uslugi =================*/
+	.uslugi-b{
+	  width: 100%;
+	  margin: 0 auto 25px;
+	}
+	.uslugi-b__i{
+	  margin:0 auto 10px;
+	  display: block;
+	  float:none;
+	}
+
+	/*================= content ================*/
+	.b-items{
+	  margin: 0 auto 25px;
+	  width: 100%;
+	}
+	.b-item{
+	  margin: 0 auto 20px!important;
+	  float: none;
+	}
+
+	/*================= contacts =================*/
+	.contacts-b{
+	  width:100%;
+	  margin: 20px auto 0;
+	}
+	.contacts-b__item{
+	  float:  none;
+	  width: auto; 
+	  height: auto;  
+	  padding-top: 8px; 
+	  padding-left: 40px;
+	  margin-bottom: 15px;	 
+	}
+	.contacts-b__item:nth-of-type(2n){
+		float: none;
+		width: auto;		
+	}
+	.mab-b{
+	  width:100%;
+	  margin-bottom: 5px;
+	  margin-top: 0;	  
+	  position: relative; 
+	}
+
+	/*================= footer =================*/
+	.footer-phones{
+	  box-sizing: border-box;
+	  width:230px;
+	  line-height: 1;
+	  text-align: left;
+	  padding-left: 33px;
+	  height:auto;
+    background: url(../img/sprite-n.png) 0 -177px no-repeat;	  
+	}
+	.footer-phones a{
+		display: block;
+	}
+	.footer-phones a:first-of-type{
+	  margin-left: 0;
+	  margin-right: 0;
+	  padding-right: 0;
+	  margin-bottom: 8px;
+	  position: relative;
+	}
+	.footer-phones a:first-of-type:after{
+	  display: none;
+	}
+
+}	
