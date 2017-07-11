@@ -25,7 +25,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 <!--[if lt IE 7]>
 <p class="browsehappy">
-    You are using an <strong>outdated</strong> browser. Please
+    You are using an <strong>outdated</strong> browser.Please
     <a target="_blank" rel="nofollow" href="http://browsehappy.com/">upgrade your browser</a>
     to improve your experience.
 </p>
@@ -34,39 +34,34 @@ AppAsset::register($this);
     <header class="clearfix">
         <div class="wrap">
             <div class="header-top clearfix">
-                <a class="logo" href="/ua"><img src="/img/logo.png" alt=""></a>
+                <?= Html::a (
+                        '<img src="/img/logo.png" alt="Мовитен">',
+                    ['site/index'],
+                    ['class' => 'logo']
+                ); ?>
                 <div class="header-phones">
                     <a href="tel:+380980448288">
-                        +38 098 044 82 88 </a>
+                        +38 098 044 82 88
+                    </a>
                     <a href="tel:+380507652354">
-                        +38 050 765 23 54 </a>
+                        +38 050 765 23 54
+                    </a>
                 </div>
                 <div class="header-top__right clearfix">
                     <div class="header-email">
                         E-mail:
-                        <a href="mailto:vartist@ukr.net">vartist@ukr.net</a>
+                        <a href="javascript:">vartist@ukr.net</a>
                     </div>
-                    <a href="javascript:;" data-selector="form-order" class="header-offer overlayElementTrigger">
-                        Замовити послугу </a>
-                    <form method="post" id="language-form" class="jqui-lang">
-                        <select name="language" id="language-select">
-                            <option
-                                    value="ua"
-                                    selected>
-                                Укр
-                            </option>
-                            <option
-                                    value="ru"
-                            >
-                                Рус
-                            </option>
-                        </select>
-                    </form>
+                    <a href="javascript:" data-selector="form-order" class="header-offer overlayElementTrigger">
+                        Заказать услугу
+                    </a>
                 </div>
             </div>
             <nav>
-                <a class="nav-link" href="/ua/about">Про нас</a> <a class="nav-link" href="/ua/service">Послуги</a> <a
-                        class="nav-link" href="/ua/portfolio">Портфоліо</a> <a class="nav-link" href="/ua/contact">Контакти</a>
+                <?= Html::a('О нас', ['about/index'], ['class' => 'nav-link']); ?>
+                <?= Html::a('Услуги', ['service/index'], ['class' => 'nav-link']); ?>
+                <?= Html::a('Портфолио', ['portfolio/index'], ['class' => 'nav-link']); ?>
+                <?= Html::a('Контакты', ['contact/index'], ['class' => 'nav-link']); ?>
             </nav>
         </div>
     </header>
@@ -83,25 +78,21 @@ AppAsset::register($this);
             <div class="footer-contacts clearfix">
                 <div class="footer-phones clearfix">
                     <a href="tel:+380980448288">
-                        +38 098 044 82 88 </a>
+                        +38 098 044 82 88
+                    </a>
                     <a href="tel:+380507652354">
-                        +38 050 765 23 54 </a>
+                        +38 050 765 23 54
+                    </a>
                 </div>
-                <a href="mailto:vartist@ukr.net" class="footer-mail">
-                    vartist@ukr.net </a>
+                <a href="javascript:" class="footer-mail">
+                    vartist@ukr.net
+                </a>
             </div>
-            <a href="javascript:;" class="to-top">Вгору</a>
+            <a href="javascript:" class="to-top">Вверх</a>
         </div>
         <div class="footer-info clearfix">
             <div class="footer-info__copy">
                 © 2014—2017 «Вартість» проектне бюро, будівництво та архітектура
-            </div>
-            <div class="footer-info__maks">
-                <a href="javascript:;" class="maks-logo">Макс</a>
-                <div>
-                    <a href="tel:067-96-255-26">067-96-255-26</a><br/>
-                    <a href="mailto:panditmaximus@gmail.com">panditmaximus@gmail.com</a>
-                </div>
             </div>
         </div>
     </div>
@@ -110,7 +101,7 @@ AppAsset::register($this);
     <div class="form-overlay"></div>
     <div class="wrap">
         <div class="of-form form-order clearfix">
-            <a href="javascript:;" class="of-close"></a href="">
+            <a href="javascript:" class="of-close"></a>
             <form id="yw0" action="/" method="post">
                 <div class="of-form__title">Замовити послуги</div>
                 <div class="of-wrap clearfix">
@@ -144,12 +135,12 @@ AppAsset::register($this);
                         </select>
                         <div class="errorMessage" id="Order_service_em_" style="display:none"></div>
                     </div>
-                    <textarea class="of-form__textarea" placeholder="Коментар" name="Order[text]"
-                              id="Order_text"></textarea>
+                    <textarea class="of-form__textarea" placeholder="Коментар" name="Order[text]" id="Order_text"></textarea>
                     <div class="errorMessage" id="Order_text_em_" style="display:none"></div>
                     <div class="of-form__text"><span></span>Поля, обов’язкові для заповнення</div>
-                    <a href="javascript:;" class="of-submit of-submit-form">
-                        Замовити </a>
+                    <a href="javascript:" class="of-submit of-submit-form">
+                        Замовити
+                    </a>
                 </div>
             </form>
         </div>

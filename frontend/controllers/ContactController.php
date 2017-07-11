@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 
-class SiteController extends BaseController
+class ContactController extends BaseController
 {
     public function actionIndex()
     {

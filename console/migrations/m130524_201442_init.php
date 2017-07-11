@@ -4,7 +4,7 @@ use yii\db\Migration;
 
 class m130524_201442_init extends Migration
 {
-    public function up()
+    public function safeUp()
     {
         $this->createTable('{{%user}}', [
             'id' => $this->primaryKey(),
@@ -18,7 +18,7 @@ class m130524_201442_init extends Migration
         ]);
     }
 
-    public function down()
+    public function safeDown()
     {
         $this->dropTable('{{%user}}');
     }

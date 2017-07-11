@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 
 class BaseController extends Controller
@@ -17,10 +18,30 @@ class BaseController extends Controller
                 'class' => AccessControl::className(),
                 'rules' => [
                     [
+                        'actions' => ['login', 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout', 'index'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
                 ],
+            ],
+            'verbs' => [
+                'actions' => [
+                    'logout' => ['post'],
+                ],
+                'class' => VerbFilter::className(),
+            ],
+        ];
+    }
+
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
             ],
         ];
     }

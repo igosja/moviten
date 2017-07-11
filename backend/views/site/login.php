@@ -1,11 +1,13 @@
 <?php
 
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model \common\models\LoginForm */
+/**
+ * @var $form yii\bootstrap\ActiveForm
+ * @var $model \common\models\LoginForm
+ * @var $this yii\web\View
+ */
 
-use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
+use yii\helpers\Html;
 
 ?>
 <div class="site-login">
@@ -17,7 +19,7 @@ use yii\bootstrap\ActiveForm;
                 <?= $form->field($model, 'password')->passwordInput() ?>
                 <?= $form->field($model, 'rememberMe')->checkbox() ?>
                 <div class="form-group">
-                    <?= Html::submitButton('Login', ['class' => 'btn btn-default']) ?>
+                    <?= Html::submitButton('Войти', ['class' => 'btn btn-default']) ?>
                 </div>
             <?php ActiveForm::end(); ?>
         </div>

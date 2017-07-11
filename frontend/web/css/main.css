@@ -291,63 +291,6 @@ header {
     text-decoration: none;
 }
 
-.jqui-lang {
-    float: right;
-    margin-top: 12px;
-}
-
-.jqui-lang .ui-selectmenu-button span.ui-selectmenu-text {
-    text-align: left;
-    padding: 0;
-    display: block;
-    line-height: 1.4;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    border-bottom: 1px dotted #272727;
-}
-
-.jqui-lang:hover .ui-selectmenu-button span.ui-selectmenu-text {
-    border-color: #eaab00;
-}
-
-.jqui-lang .ui-state-default,
-.jqui-lang .ui-widget-content .ui-state-default,
-.jqui-lang .ui-widget-header .ui-state-default {
-    border: 0;
-    background: none;
-    font-weight: 300;
-    color: #272727;
-    font-size: 12px;
-    font-family: "Roboto";
-    width: auto !important;
-    outline: none !important;
-    padding-right: 12px;
-}
-
-.jqui-lang:hover .ui-state-default,
-.jqui-lang:hover .ui-widget-content .ui-state-default,
-.jqui-lang:hover .ui-widget-header .ui-state-default {
-    color: #eaab00;
-}
-
-.jqui-lang .ui-selectmenu-button .ui-icon-triangle-1-s {
-    width: 0px !important;
-    height: 0px !important;
-    right: 0px !important;
-    left: auto !important;
-    top: 6px !important;
-    margin-left: -4px;
-    border: 3px solid transparent;
-    border-top: 3px solid #eaab00;
-    z-index: 5;
-    margin-top: 0 !important;
-    -webkit-transition: background .2s linear 0s;
-    -moz-transition: background .2s linear 0s;
-    transition: background .2s linear 0s;
-    background: none;
-}
-
 nav {
     padding: 20px 0;
     text-align: center;
@@ -1358,50 +1301,6 @@ footer {
     font-size: 12px;
     color: #8e8e8e;
     letter-spacing: 1.2px;
-}
-
-.footer-info__maks {
-    float: right;
-    color: #414141;
-    position: relative;
-    z-index: 2;
-}
-
-.footer-info__maks * {
-    -webkit-transition: all 300ms ease-in;
-    -moz-transition: all 300ms ease-in;
-    -ms-transition: all 300ms ease-in;
-    -o-transition: all 300ms ease-in;
-    transition: all 300ms ease-in;
-}
-
-.footer-info__maks:hover * {
-    color: #909090;
-}
-
-.footer-info__maks a {
-    color: #414141;
-    font-size: 12px;
-    font-weight: 600;
-    text-decoration: none !important;
-    cursor: default;
-}
-
-.footer-info__maks div {
-    float: left;
-    line-height: 1;
-    margin-left: 10px;
-}
-
-.maks-logo {
-    display: block;
-    float: left;
-    font-family: 'BebasNeue-Regular';
-    font-size: 37px !important;
-    line-height: 1;
-    position: relative;
-    top: -1px;
-    text-transform: uppercase;
 }
 
 .overlay-forms {

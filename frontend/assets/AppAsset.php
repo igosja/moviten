@@ -23,6 +23,7 @@ class AppAsset extends AssetBundle
         'js/main.js',
         'js/site.js',
         '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js',
+        '//maps.googleapis.com/maps/api/js?key=AIzaSyAYBg8KC7jzGXqsJO4ZvBUBr-zHT_0qm2s&callback=initMap',
     ];
     public $depends = [
         'yii\web\YiiAsset',

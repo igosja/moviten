@@ -41,6 +41,11 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                '' => 'site/index',
+                'about' => 'about/index',
+                'contact' => 'contact/index',
+                'portfolio' => 'portfolio/index',
+                'service' => 'service/index',
                 '<controller>/<action>/<id>' => '<controller>/<action>',
                 '<controller>/<action>' => '<controller>/<action>',
                 '<controller>/<id>' => '<controller>/view',

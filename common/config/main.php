@@ -2,6 +2,9 @@
 
 return [
     'components' => [
+        'assetManager' => [
+            'appendTimestamp' => true,
+        ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],

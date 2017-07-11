@@ -35,7 +35,27 @@ AppAsset::register($this);
             'class' => 'navbar-inverse navbar-fixed-top',
         ],
     ]);
-    $menuItems = [];
+    $menuItems = [
+        ['label' => 'Главная станица', 'items' => [
+            ['label' => 'Слайды', 'url' => ['slide/index']],
+            ['label' => 'СЕО и общая информация', 'url' => ['pagemain/index']],
+        ], 'visible' => !Yii::$app->user->isGuest],
+        ['label' => 'О нас', 'items' => [
+            ['label' => 'СЕО и общая информация', 'url' => ['pageabout/index']],
+        ], 'visible' => !Yii::$app->user->isGuest],
+        ['label' => 'Услуги', 'items' => [
+            ['label' => 'Услуги', 'url' => ['service/index']],
+            ['label' => 'СЕО и общая информация', 'url' => ['pageservice/index']],
+        ], 'visible' => !Yii::$app->user->isGuest],
+        ['label' => 'Потфолио', 'items' => [
+            ['label' => 'Потфолио', 'url' => ['portfolio/index']],
+            ['label' => 'Категории', 'url' => ['portfoliocategory/index']],
+            ['label' => 'СЕО и общая информация', 'url' => ['pagepotrfolio/index']],
+        ], 'visible' => !Yii::$app->user->isGuest],
+        ['label' => 'Контакты', 'items' => [
+            ['label' => 'СЕО и общая информация', 'url' => ['pagecontact/index']],
+        ], 'visible' => !Yii::$app->user->isGuest],
+    ];
     if (Yii::$app->user->isGuest) {
         $menuItems[] = ['label' => 'Вход', 'url' => ['site/login']];
     } else {

@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 
-class SiteController extends BaseController
+class AboutController extends BaseController
 {
     public function actionIndex()
     {
