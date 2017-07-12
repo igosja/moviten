@@ -50,7 +50,7 @@ AppAsset::register($this);
         ['label' => 'Потфолио', 'items' => [
             ['label' => 'Потфолио', 'url' => ['portfolio/index']],
             ['label' => 'Категории', 'url' => ['portfoliocategory/index']],
-            ['label' => 'СЕО и общая информация', 'url' => ['pagepotrfolio/index']],
+            ['label' => 'СЕО и общая информация', 'url' => ['pageportfolio/index']],
         ], 'visible' => !Yii::$app->user->isGuest],
         ['label' => 'Контакты', 'items' => [
             ['label' => 'СЕО и общая информация', 'url' => ['pagecontact/index']],

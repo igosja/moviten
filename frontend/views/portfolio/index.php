@@ -1,23 +1,27 @@
 <?php
 
+/**
+ * @var $a_category array
+ * @var $o_page \common\models\PagePortfolio
+ */
+
 use yii\helpers\Html;
 
 ?>
 <section class="content ">
     <div class="wrap usluga">
-        <div class="breadchambs">
-            <a href="/test/">Головна</a>
-            <span>Портфоліо</span>
-        </div>
-        <h1 class="m-title">Портфоліо</h1>
-
+        <?= Yii::$app->controller->renderPartial('//include/bread'); ?>
+        <h1 class="m-title"><?= $o_page['h1']; ?></h1>
         <div class="b-portfolio__menu">
             <a href="" class="b-portfolio__menu__i active">Все</a>
-            <a href="" class="b-portfolio__menu__i">Проектування</a>
-            <a href="" class="b-portfolio__menu__i">Обстеження і підсилення конструкцій </a>
-            <a href="" class="b-portfolio__menu__i">Науково-дослідні роботи</a>
+            <?php foreach ($a_category as $item) { ?>
+                <?= Html::a(
+                    $item['h1'],
+                    ['index', 'id' => $item['url']],
+                    ['class' => 'b-portfolio__menu__i']
+                ); ?>
+            <?php } ?>
         </div>
-
         <div class="uslugi-b clearfix">
             <?= Html::a(
                 '<img src="img/uslugi-page/uslugi-1.jpg" alt="">
@@ -117,8 +121,6 @@ use yii\helpers\Html;
                 </div>
             </a>
         </div>
-
         <a href="javascript:" class="portfolio-more">Загрузити ще</a>
-
     </div>
 </section>

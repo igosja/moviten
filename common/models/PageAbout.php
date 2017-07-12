@@ -16,7 +16,6 @@ class PageAbout extends ActiveRecord
         return [
             [['image_id', 'team_1', 'team_2', 'team_3', 'team_4'], 'integer'],
             [['h1', 'h2', 'h3_1', 'h3_2', 'seo_title'], 'string', 'max' => 255],
-            [['email'], 'email'],
             [['text_1', 'text_2', 'text_3', 'seo_description', 'seo_keywords'], 'safe'],
         ];
     }

@@ -4,9 +4,6 @@ namespace backend\assets;
 
 use yii\web\AssetBundle;
 
-/**
- * Main backend application asset bundle.
- */
 class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
@@ -15,6 +12,8 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        'js/rowsorter.js',
+        'js/main.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

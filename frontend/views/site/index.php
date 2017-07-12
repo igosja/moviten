@@ -1,3 +1,8 @@
+<?php
+/**
+ * @var $o_page \common\models\PageMain
+ */
+?>
 <section class="content content_main">
     <div id="slider" class="owl-carousel">
         <div class="item">
@@ -9,15 +14,8 @@
     </div>
     <div class="wrap">
         <div class="m-text">
-            <h1 class="m-text__title">Наші послуги</h1>
-            <p>Проектне бюро &laquo;Вартість&raquo;, створене в 1996 році, успішно працює на ринку України більше
-                десяти років і за цей час ми встигли зарекомендувати себе як надійні партнери та виконавці замовлень
-                у сфері проектування, &nbsp;консалтингу, обстеження та підсилення конструкцій та &nbsp;оцінки
-                нерухомості.<br/>
-                Крім того, ми надаємо послуги у термоаудиті, управлінні проектами, &nbsp;розробці нормативної
-                документації та в науково-дослідних роботах.&nbsp;<br/>
-                Співпрацюючи з нами, Ви завжди отримаєте якісну допомогу та консультації від команди професіоналів
-                та майстрів своєї справи.</p>
+            <h1 class="m-text__title">Наши услуги</h1>
+            <?= nl2br($o_page['text']); ?>
         </div>
         <div class="b-items clearfix">
             <a class="b-item" href="https://vartist.com.ua/ua/service/proektuvannya"><img
@@ -56,7 +54,7 @@
     <div class="m-best">
         <div class="wrap">
             <div class="centered">
-                <h2 class="m-text__title">Кращі проекти</h2>
+                <h2 class="m-text__title">Лучшие проекты</h2>
             </div>
             <div class="slider-out">
                 <div class="slider-main clearfix">
