@@ -33,6 +33,7 @@ use yii\bootstrap\ActiveForm;
                 ['prompt' => 'Выберите категорию']
             ); ?>
             <?= $form->field($model, 'text')->textarea(['rows' => 10]); ?>
+            <?= $form->field($model, 'upload_image[]')->fileInput(['class' => 'form-control', 'multiple' => true]); ?>
             <?= $form->field($model, 'seo_title')->textInput(); ?>
             <?= $form->field($model, 'seo_description')->textarea(); ?>
             <?= $form->field($model, 'seo_keywords')->textarea(); ?>

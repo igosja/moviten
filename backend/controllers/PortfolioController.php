@@ -7,6 +7,7 @@ use common\models\Portfolio;
 use common\models\PortfolioCategory;
 use Yii;
 use yii\web\NotFoundHttpException;
+use yii\web\UploadedFile;
 
 class PortfolioController extends BaseController
 {
@@ -45,6 +46,11 @@ class PortfolioController extends BaseController
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model['upload_image'] = UploadedFile::getInstances($model, 'upload_image');
+            if ($model['upload_image']) {
+                $model->upload();
+            }
+
             Yii::$app->session->setFlash('success', $this->saved);
             return $this->redirect(['update', 'id' => $model->primaryKey]);
         }

@@ -4,7 +4,7 @@ namespace common\models;
 
 use yii\db\ActiveRecord;
 
-class PotfolioImage extends ActiveRecord
+class PortfolioImage extends ActiveRecord
 {
     public static function tableName()
     {
