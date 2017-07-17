@@ -1,9 +1,11 @@
 <?php
 
 /**
+ * @var $a_service array
  * @var $o_page \common\models\PageMain
  */
 
+use common\models\HelperImage;
 use yii\helpers\Html;
 
 ?>
@@ -12,71 +14,17 @@ use yii\helpers\Html;
         <?= Yii::$app->controller->renderPartial('//include/bread'); ?>
         <h1 class="m-title"><?= $o_page['h1']; ?></h1>
         <div class="uslugi-b clearfix">
-            <?= Html::a(
-                '<img src="img/uslugi-page/uslugi-1.jpg" alt="">
-                <div class="uslugi-b__i__in">
-                    <div class="uslugi-b__i__title">Проектування</div>
-                    <div href="javascript:" class="uslugi-b__i__btn">Детальніше</div>
-                </div>',
-                ['view'],
-                ['class' => 'uslugi-b__i']
-            )?>
-            <a href="javascript:" class="uslugi-b__i">
-                <img src="img/uslugi-page/uslugi-2.jpg" alt="">
-
-                <div class="uslugi-b__i__in">
-                    <div class="uslugi-b__i__title">Обстеження<br />і підсилення конструкцій</div>
-                    <div href="javascript:" class="uslugi-b__i__btn">Детальніше</div>
-                </div>
-            </a>
-            <a href="javascript:" class="uslugi-b__i">
-                <img src="img/uslugi-page/uslugi-3.jpg" alt="">
-
-                <div class="uslugi-b__i__in">
-                    <div class="uslugi-b__i__title">Консалтинг<br />в сфері будівництва</div>
-                    <div href="javascript:" class="uslugi-b__i__btn">Детальніше</div>
-                </div>
-            </a>
-            <a href="javascript:" class="uslugi-b__i">
-                <img src="img/uslugi-page/uslugi-4.jpg" alt="">
-
-                <div class="uslugi-b__i__in">
-                    <div class="uslugi-b__i__title">Оцінка нерухомості</div>
-                    <div href="javascript:" class="uslugi-b__i__btn">Детальніше</div>
-                </div>
-            </a>
-            <a href="javascript:" class="uslugi-b__i">
-                <img src="img/uslugi-page/uslugi-5.jpg" alt="">
-
-                <div class="uslugi-b__i__in">
-                    <div class="uslugi-b__i__title">Управління проектами</div>
-                    <div href="javascript:" class="uslugi-b__i__btn">Детальніше</div>
-                </div>
-            </a>
-            <a href="javascript:" class="uslugi-b__i">
-                <img src="img/uslugi-page/uslugi-6.jpg" alt="">
-
-                <div class="uslugi-b__i__in">
-                    <div class="uslugi-b__i__title">Науково-дослідні роботи</div>
-                    <div href="javascript:" class="uslugi-b__i__btn">Детальніше</div>
-                </div>
-            </a>
-            <a href="javascript:" class="uslugi-b__i">
-                <img src="img/uslugi-page/uslugi-7.jpg" alt="">
-
-                <div class="uslugi-b__i__in">
-                    <div class="uslugi-b__i__title">Розробка нормативної<br />документації</div>
-                    <div href="javascript:" class="uslugi-b__i__btn">Детальніше</div>
-                </div>
-            </a>
-            <a href="javascript:" class="uslugi-b__i">
-                <img src="img/uslugi-page/uslugi-8.jpg" alt="">
-
-                <div class="uslugi-b__i__in">
-                    <div class="uslugi-b__i__title">Термоаудит</div>
-                    <div href="javascript:" class="uslugi-b__i__btn">Детальніше</div>
-                </div>
-            </a>
+            <?php foreach ($a_service as $item) { ?>
+                <?= Html::a(
+                    '<img src="' . HelperImage::resize($item['image_id'], 290, 290) . '" alt="' . $item['h1'] . '">
+                    <div class="uslugi-b__i__in">
+                        <div class="uslugi-b__i__title">' . $item['h1'] . '</div>
+                        <div class="uslugi-b__i__btn">Подробнее</div>
+                    </div>',
+                    ['view', 'id' => $item['url']],
+                    ['class' => 'uslugi-b__i']
+                ) ?>
+            <?php } ?>
         </div>
         <div class="centered">
             <?= $o_page['text']; ?>

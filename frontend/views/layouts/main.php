@@ -34,8 +34,8 @@ AppAsset::register($this);
     <header class="clearfix">
         <div class="wrap">
             <div class="header-top clearfix">
-                <?= Html::a (
-                        '<img src="/img/logo.png" alt="Мовитен">',
+                <?= Html::a(
+                    '<img src="/img/logo.png" alt="Мовитен">',
                     ['site/index'],
                     ['class' => 'logo']
                 ); ?>
@@ -135,7 +135,8 @@ AppAsset::register($this);
                         </select>
                         <div class="errorMessage" id="Order_service_em_" style="display:none"></div>
                     </div>
-                    <textarea class="of-form__textarea" placeholder="Коментар" name="Order[text]" id="Order_text"></textarea>
+                    <textarea class="of-form__textarea" placeholder="Коментар" name="Order[text]"
+                              id="Order_text"></textarea>
                     <div class="errorMessage" id="Order_text_em_" style="display:none"></div>
                     <div class="of-form__text"><span></span>Поля, обов’язкові для заповнення</div>
                     <a href="javascript:" class="of-submit of-submit-form">

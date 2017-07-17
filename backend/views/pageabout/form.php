@@ -31,6 +31,61 @@ use yii\helpers\Html;
             <?= $form->field($model, 'text_1')->textarea(); ?>
             <?= $form->field($model, 'text_2')->textarea(); ?>
             <?= $form->field($model, 'text_3')->textarea(); ?>
+            <?php if ($model['image']['url']) { ?>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"><?= $model->getAttributeLabel('upload_image'); ?></label>
+                    <div class="col-md-6">
+                        <?= Html::a('×', ['image', 'id' => $model->primaryKey], ['class' => 'close', 'title' => 'Удалить']); ?>
+                        <img class="img-responsive" src="<?= $model['image']['url']; ?>"/>
+                    </div>
+                </div>
+            <?php } else { ?>
+                <?= $form->field($model, 'upload_image')->fileInput(['class' => 'form-control']); ?>
+            <?php } ?>
+            <?php if ($model['team1']['url']) { ?>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"><?= $model->getAttributeLabel('upload_team_1'); ?></label>
+                    <div class="col-md-6">
+                        <?= Html::a('×', ['team1', 'id' => $model->primaryKey], ['class' => 'close', 'title' => 'Удалить']); ?>
+                        <img class="img-responsive" src="<?= $model['team1']['url']; ?>"/>
+                    </div>
+                </div>
+            <?php } else { ?>
+                <?= $form->field($model, 'upload_team_1')->fileInput(['class' => 'form-control']); ?>
+            <?php } ?>
+            <?php if ($model['team2']['url']) { ?>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"><?= $model->getAttributeLabel('upload_team_2'); ?></label>
+                    <div class="col-md-6">
+                        <?= Html::a('×', ['team2', 'id' => $model->primaryKey], ['class' => 'close', 'title' => 'Удалить']); ?>
+                        <img class="img-responsive" src="<?= $model['team2']['url']; ?>"/>
+                    </div>
+                </div>
+            <?php } else { ?>
+                <?= $form->field($model, 'upload_team_2')->fileInput(['class' => 'form-control']); ?>
+            <?php } ?>
+            <?php if ($model['team3']['url']) { ?>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"><?= $model->getAttributeLabel('upload_team_3'); ?></label>
+                    <div class="col-md-6">
+                        <?= Html::a('×', ['team3', 'id' => $model->primaryKey], ['class' => 'close', 'title' => 'Удалить']); ?>
+                        <img class="img-responsive" src="<?= $model['team3']['url']; ?>"/>
+                    </div>
+                </div>
+            <?php } else { ?>
+                <?= $form->field($model, 'upload_team_3')->fileInput(['class' => 'form-control']); ?>
+            <?php } ?>
+            <?php if ($model['team4']['url']) { ?>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label"><?= $model->getAttributeLabel('upload_team_4'); ?></label>
+                    <div class="col-md-6">
+                        <?= Html::a('×', ['team4', 'id' => $model->primaryKey], ['class' => 'close', 'title' => 'Удалить']); ?>
+                        <img class="img-responsive" src="<?= $model['team4']['url']; ?>"/>
+                    </div>
+                </div>
+            <?php } else { ?>
+                <?= $form->field($model, 'upload_team_4')->fileInput(['class' => 'form-control']); ?>
+            <?php } ?>
             <?= $form->field($model, 'seo_title')->textInput(); ?>
             <?= $form->field($model, 'seo_description')->textarea(); ?>
             <?= $form->field($model, 'seo_keywords')->textarea(); ?>

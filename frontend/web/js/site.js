@@ -3,25 +3,6 @@ jQuery(document).ready(function ($) {
         $('#language-form').submit();
     });
 
-    $('.portfolio-more').on('click', function () {
-        var page = $(this).data('page');
-        var id = $(this).data('id');
-
-        $.ajax({
-            url: '/portfolio/more/' + id + '?page=' + page,
-            dataType: 'json',
-            success: function (data) {
-                $('.uslugi-b').append(data.list);
-                if (data.more) {
-                    page++;
-                    $('.portfolio-more').data('page', page);
-                } else {
-                    $('.portfolio-more').hide();
-                }
-            }
-        });
-    });
-
     if ($('#form-success').length) {
         if ($('.overlay-forms').is(':visible')) {
             $('.form-thanks').show();
@@ -31,4 +12,33 @@ jQuery(document).ready(function ($) {
             $('.form-thanks').show();
         }
     }
+
+    $('.portfolio-more').on('click', function () {
+        var button = $(this);
+        var offset = button.data('offset');
+        var category = button.data('id');
+        var project_div = $('.uslugi-b');
+
+        $.ajax({
+            beforeSend: function () {
+                button.hide();
+            },
+            url: '/portfolio/more/' + category + '?offset=' + offset,
+            success: function (data) {
+                project_div.append(data);
+                $.ajax({
+                    dataType: 'json',
+                    url: '/portfolio/check/' + category + '?offset=' + offset,
+                    success: function (data) {
+                        if (true === data.remove) {
+                            button.remove();
+                        } else {
+                            button.data('offset', data.offset);
+                            button.show();
+                        }
+                    }
+                });
+            }
+        });
+    });
 });

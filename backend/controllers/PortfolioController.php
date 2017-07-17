@@ -2,38 +2,43 @@
 
 namespace backend\controllers;
 
-use backend\models\PortfolioCategorySearch;
+use backend\models\PortfolioSearch;
+use common\models\Portfolio;
 use common\models\PortfolioCategory;
 use Yii;
 use yii\web\NotFoundHttpException;
 
-class PortfoliocategoryController extends BaseController
+class PortfolioController extends BaseController
 {
-    public $bread = 'Категории';
-    public $not_found = 'Категория не найдена';
-    public $title_create = 'Создание категории';
-    public $title_edit = 'Редактирование категории';
-    public $title_index = 'Категории';
+    public $bread = 'Портфолио';
+    public $not_found = 'Портфолио не найден';
+    public $title_create = 'Создание портфолио';
+    public $title_edit = 'Редактирование портфолио';
+    public $title_index = 'Портфолио';
 
     public function actionIndex()
     {
-        $searchModel = new PortfolioCategorySearch();
+        $searchModel = new PortfolioSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         $this->view->title = $this->title_index;
         $this->view->params['breadcrumbs'][] = $this->bread;
 
+        $a_portfoliocategory = PortfolioCategory::find()->orderBy('h1 ASC')->all();
+
         return $this->render('index', [
+            'a_portfoliocategory' => $a_portfoliocategory,
             'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
     }
 
     public function actionUpdate($id = 0)
     {
         if (0 == $id) {
-            $model = new PortfolioCategory();
+            $model = new Portfolio();
         } else {
-            $model = PortfolioCategory::findOne($id);
+            $model = Portfolio::findOne($id);
             if (!$model) {
                 throw new NotFoundHttpException($this->not_found);
             }
@@ -53,14 +58,17 @@ class PortfoliocategoryController extends BaseController
         }
         $this->view->params['breadcrumbs'][] = $this->view->title;
 
+        $a_portfoliocategory = PortfolioCategory::find()->orderBy('h1 ASC')->all();
+
         return $this->render('form', [
+            'a_portfoliocategory' => $a_portfoliocategory,
             'model' => $model,
         ]);
     }
 
     public function actionView($id)
     {
-        $model = PortfolioCategory::findOne($id);
+        $model = Portfolio::findOne($id);
         if (!$model) {
             throw new NotFoundHttpException($this->not_found);
         }
@@ -76,7 +84,7 @@ class PortfoliocategoryController extends BaseController
 
     public function actionDelete($id)
     {
-        $model = PortfolioCategory::findOne($id);
+        $model = Portfolio::findOne($id);
         if (!$model) {
             throw new NotFoundHttpException($this->not_found);
         }
@@ -89,7 +97,7 @@ class PortfoliocategoryController extends BaseController
 
     public function actionStatus($id)
     {
-        $model = PortfolioCategory::findOne($id);
+        $model = Portfolio::findOne($id);
         if ($model) {
             $model['status'] = 1 - $model['status'];
             $model->save();
@@ -100,9 +108,9 @@ class PortfoliocategoryController extends BaseController
     {
         $order_old = (int)Yii::$app->request->get('order_old', 0);
         $order_new = (int)Yii::$app->request->get('order_new', 0);
-        PortfolioCategory::updateAll(['`order`' => $order_new], ['id' => $id]);
+        Portfolio::updateAll(['`order`' => $order_new], ['id' => $id]);
         if ($order_old < $order_new) {
-            $a_model = PortfolioCategory::find()
+            $a_model = Portfolio::find()
                 ->where(['>=', '`order`', $order_old])
                 ->andWhere(['<=', '`order`', $order_new])
                 ->andWhere(['!=', 'id', $id])
@@ -112,7 +120,7 @@ class PortfoliocategoryController extends BaseController
                 $model->save();
             }
         } else {
-            $a_model = PortfolioCategory::find()
+            $a_model = Portfolio::find()
                 ->where(['<=', '`order`', $order_old])
                 ->andWhere(['>=', '`order`', $order_new])
                 ->andWhere(['!=', 'id', $id])

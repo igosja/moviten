@@ -2,7 +2,7 @@
 
 /**
  * @var $dataProvider \yii\debug\models\timeline\DataProvider
- * @var $model \common\models\PortfolioCategory
+ * @var $model \common\models\Service
  * @var $this \yii\web\View
  */
 

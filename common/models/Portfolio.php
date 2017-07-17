@@ -4,21 +4,21 @@ namespace common\models;
 
 use yii\db\ActiveRecord;
 
-class PortfolioCategory extends ActiveRecord
+class Portfolio extends ActiveRecord
 {
     public static function tableName()
     {
-        return '{{%portfoliocategory}}';
+        return '{{%portfolio}}';
     }
 
     public function rules()
     {
         return [
-            [['h1'], 'required'],
+            [['h1', 'portfoliocategory_id', 'text'], 'required'],
             [['h1', 'url', 'seo_title'], 'string', 'max' => 255],
             [['url'], 'unique'],
-            [['status', 'order'], 'integer'],
-            [['seo_description', 'seo_keywords'], 'safe'],
+            [['portfoliocategory_id', 'status'], 'integer'],
+            [['text', 'seo_description', 'seo_keywords'], 'safe'],
         ];
     }
 
@@ -31,18 +31,14 @@ class PortfolioCategory extends ActiveRecord
             }
             $this['url'] = str_replace(' ', '-', $this['url']);
             $this['url'] = strtolower($this['url']);
-            if ($this->isNewRecord) {
-                $max_order = self::find()->orderBy('`order` DESC')->one();
-                if ($max_order) {
-                    $max_order = $max_order['order'] + 1;
-                } else {
-                    $max_order = 0;
-                }
-                $this['order'] = $max_order;
-            }
             return true;
         } else {
             return false;
         }
+    }
+
+    public function getPortfoliocategory()
+    {
+        return $this->hasOne(PortfolioCategory::className(), ['id' => 'portfoliocategory_id']);
     }
 }

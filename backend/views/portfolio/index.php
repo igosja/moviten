@@ -1,13 +1,16 @@
 <?php
 
 /**
+ * @var $a_portfoliocategory array
  * @var $dataProvider \yii\debug\models\timeline\DataProvider
- * @var $model \common\models\PortfolioCategory
+ * @var $model \common\models\Portfolio
+ * @var $searchModel \backend\models\PortfolioSearch
  * @var $this \yii\web\View
  */
 
 use lo\widgets\Toggle;
 use yii\grid\GridView;
+use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 use yii\helpers\Url;
 
@@ -32,20 +35,21 @@ use yii\helpers\Url;
             <?php
 
             $columns = [
+                'h1',
                 [
-                    'attribute' => 'h1',
-                    'enableSorting' => false,
-                    'format' => 'raw',
+                    'attribute' => 'portfoliocategory_id',
+                    'filter' => Html::activeDropDownList(
+                        $searchModel,
+                        'portfoliocategory_id',
+                        ArrayHelper::map($a_portfoliocategory, 'id', 'h1'),
+                        ['class' => 'form-control', 'prompt' => 'Выбрать все']
+                    ),
                     'value' => function ($model) {
-                        return '<span
-                                class="glyphicon glyphicon-resize-vertical text-primary"
-                                data-url="' . Url::to(['order', 'id' => $model->primaryKey]) . '"></span> '
-                            . $model['h1'];
+                        return $model->portfoliocategory->h1;
                     }
                 ],
                 [
                     'attribute' => 'status',
-                    'enableSorting' => false,
                     'format' => 'raw',
                     'headerOptions' => ['class' => 'col-lg-1'],
                     'value' => function ($model) {
@@ -70,10 +74,8 @@ use yii\helpers\Url;
             <?= GridView::widget([
                 'columns' => $columns,
                 'dataProvider' => $dataProvider,
-                'rowOptions' => function ($model) {
-                    return ['data-url' => Url::to(['order', 'id' => $model->primaryKey])];
-                },
-                'tableOptions' => ['class' => 'table table-striped sorting-table'],
+                'filterModel' => $searchModel,
+                'tableOptions' => ['class' => 'table table-striped'],
             ]); ?>
         </div>
     </div>

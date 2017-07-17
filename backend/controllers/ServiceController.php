@@ -2,22 +2,23 @@
 
 namespace backend\controllers;
 
-use backend\models\PortfolioCategorySearch;
-use common\models\PortfolioCategory;
+use backend\models\ServiceSearch;
+use common\models\Service;
 use Yii;
 use yii\web\NotFoundHttpException;
+use yii\web\UploadedFile;
 
-class PortfoliocategoryController extends BaseController
+class ServiceController extends BaseController
 {
-    public $bread = 'Категории';
-    public $not_found = 'Категория не найдена';
-    public $title_create = 'Создание категории';
-    public $title_edit = 'Редактирование категории';
-    public $title_index = 'Категории';
+    public $bread = 'Услуги';
+    public $not_found = 'Услуга не найдена';
+    public $title_create = 'Создание услуги';
+    public $title_edit = 'Редактирование услуги';
+    public $title_index = 'Услуги';
 
     public function actionIndex()
     {
-        $searchModel = new PortfolioCategorySearch();
+        $searchModel = new ServiceSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         $this->view->title = $this->title_index;
@@ -31,15 +32,22 @@ class PortfoliocategoryController extends BaseController
     public function actionUpdate($id = 0)
     {
         if (0 == $id) {
-            $model = new PortfolioCategory();
+            $model = new Service();
         } else {
-            $model = PortfolioCategory::findOne($id);
+            $model = Service::findOne($id);
             if (!$model) {
                 throw new NotFoundHttpException($this->not_found);
             }
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model['upload_image'] = UploadedFile::getInstance($model, 'upload_image');
+            if ($model['upload_image']) {
+                $image_id = $model->upload();
+                $model = Service::findOne($model->primaryKey);
+                $model['image_id'] = $image_id;
+                $model->save();
+            }
             Yii::$app->session->setFlash('success', $this->saved);
             return $this->redirect(['update', 'id' => $model->primaryKey]);
         }
@@ -60,7 +68,7 @@ class PortfoliocategoryController extends BaseController
 
     public function actionView($id)
     {
-        $model = PortfolioCategory::findOne($id);
+        $model = Service::findOne($id);
         if (!$model) {
             throw new NotFoundHttpException($this->not_found);
         }
@@ -76,7 +84,7 @@ class PortfoliocategoryController extends BaseController
 
     public function actionDelete($id)
     {
-        $model = PortfolioCategory::findOne($id);
+        $model = Service::findOne($id);
         if (!$model) {
             throw new NotFoundHttpException($this->not_found);
         }
@@ -87,9 +95,21 @@ class PortfoliocategoryController extends BaseController
         return $this->redirect(['index']);
     }
 
+    public function actionImage($id)
+    {
+        $model = Service::findOne($id);
+        if (!$model) {
+            throw new NotFoundHttpException($this->not_found);
+        }
+        $model['image_id'] = 0;
+        $model->save();
+
+        return $this->redirect(['update', 'id' => $model->primaryKey]);
+    }
+
     public function actionStatus($id)
     {
-        $model = PortfolioCategory::findOne($id);
+        $model = Service::findOne($id);
         if ($model) {
             $model['status'] = 1 - $model['status'];
             $model->save();
@@ -100,9 +120,9 @@ class PortfoliocategoryController extends BaseController
     {
         $order_old = (int)Yii::$app->request->get('order_old', 0);
         $order_new = (int)Yii::$app->request->get('order_new', 0);
-        PortfolioCategory::updateAll(['`order`' => $order_new], ['id' => $id]);
+        Service::updateAll(['`order`' => $order_new], ['id' => $id]);
         if ($order_old < $order_new) {
-            $a_model = PortfolioCategory::find()
+            $a_model = Service::find()
                 ->where(['>=', '`order`', $order_old])
                 ->andWhere(['<=', '`order`', $order_new])
                 ->andWhere(['!=', 'id', $id])
@@ -112,7 +132,7 @@ class PortfoliocategoryController extends BaseController
                 $model->save();
             }
         } else {
-            $a_model = PortfolioCategory::find()
+            $a_model = Service::find()
                 ->where(['<=', '`order`', $order_old])
                 ->andWhere(['>=', '`order`', $order_new])
                 ->andWhere(['!=', 'id', $id])

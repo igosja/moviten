@@ -2,7 +2,7 @@
 
 /**
  * @var $dataProvider \yii\debug\models\timeline\DataProvider
- * @var $model \common\models\PortfolioCategory
+ * @var $model \common\models\Slide
  * @var $this \yii\web\View
  */
 
@@ -33,14 +33,19 @@ use yii\helpers\Url;
 
             $columns = [
                 [
-                    'attribute' => 'h1',
+                    'attribute' => 'image_id',
                     'enableSorting' => false,
                     'format' => 'raw',
                     'value' => function ($model) {
-                        return '<span
+                        if ($model['image']['url']) {
+                            $return = '<span
                                 class="glyphicon glyphicon-resize-vertical text-primary"
-                                data-url="' . Url::to(['order', 'id' => $model->primaryKey]) . '"></span> '
-                            . $model['h1'];
+                                data-url="' . Url::to(['order', 'id' => $model->primaryKey]) . '"></span>
+                                <img class="img-responsive" src="' . $model['image']['url'] . '" />';
+                        } else {
+                            $return = '';
+                        }
+                        return $return;
                     }
                 ],
                 [
