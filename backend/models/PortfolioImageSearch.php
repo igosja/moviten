@@ -2,33 +2,32 @@
 
 namespace backend\models;
 
-use common\models\Portfolio;
+use common\models\PortfolioImage;
 use yii\data\ActiveDataProvider;
 
-class PortfolioSearch extends Portfolio
+class PortfolioImageSearch extends PortfolioImage
 {
     public function rules()
     {
         return [
-            [['h1'], 'string', 'max' => 255],
-            [['portfoliocategory_id'], 'integer'],
+            [['portfolio_id'], 'integer'],
         ];
     }
 
     public function search($params)
     {
-        $query = Portfolio::find();
+        $query = PortfolioImage::find();
         $dataProvider = new ActiveDataProvider([
-            'query' => $query
+            'query' => $query,
+            'sort' => ['defaultOrder' => ['order' => SORT_ASC]]
         ]);
         $this->load($params);
         if (!$this->validate()) {
             return $dataProvider;
         }
         $query->andFilterWhere([
-            'portfoliocategory_id' => $this->portfoliocategory_id,
+            'portfolio_id' => $this->portfolio_id,
         ]);
-        $query->andFilterWhere(['like', 'h1', $this->h1]);
 
         return $dataProvider;
     }

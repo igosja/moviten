@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\PortfolioImageSearch;
 use backend\models\PortfolioSearch;
 use common\models\Portfolio;
 use common\models\PortfolioCategory;
@@ -79,11 +80,15 @@ class PortfolioController extends BaseController
             throw new NotFoundHttpException($this->not_found);
         }
 
+        $searchModel = new PortfolioImageSearch();
+        $dataProvider = $searchModel->search(['PortfolioImageSearch' => ['portfolio_id' => $id]]);
+
         $this->view->title = $model['h1'];
         $this->view->params['breadcrumbs'][] = ['label' => $this->bread, 'url' => ['index']];
         $this->view->params['breadcrumbs'][] = $this->view->title;
 
         return $this->render('view', [
+            'dataProvider' => $dataProvider,
             'model' => $model,
         ]);
     }

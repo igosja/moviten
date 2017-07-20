@@ -2,10 +2,13 @@
 
 namespace frontend\controllers;
 
+use common\models\Contact;
 use yii\web\Controller;
 
 class BaseController extends Controller
 {
+    public $contact;
+
     public function actions()
     {
         return [
@@ -17,5 +20,10 @@ class BaseController extends Controller
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
         ];
+    }
+
+    public function init()
+    {
+        $this->contact = Contact::findOne(1);
     }
 }

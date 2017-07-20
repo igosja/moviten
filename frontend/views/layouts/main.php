@@ -40,17 +40,17 @@ AppAsset::register($this);
                     ['class' => 'logo']
                 ); ?>
                 <div class="header-phones">
-                    <a href="tel:+380980448288">
-                        +38 098 044 82 88
+                    <a href="javascript:">
+                        <?= Yii::$app->controller->contact['phone_1']; ?>
                     </a>
-                    <a href="tel:+380507652354">
-                        +38 050 765 23 54
+                    <a href="javascript:">
+                        <?= Yii::$app->controller->contact['phone_2']; ?>
                     </a>
                 </div>
                 <div class="header-top__right clearfix">
                     <div class="header-email">
                         E-mail:
-                        <a href="javascript:">vartist@ukr.net</a>
+                        <a href="javascript:"><?= Yii::$app->controller->contact['email']; ?></a>
                     </div>
                     <a href="javascript:" data-selector="form-order" class="header-offer overlayElementTrigger">
                         Заказать услугу
@@ -77,22 +77,22 @@ AppAsset::register($this);
             </div>
             <div class="footer-contacts clearfix">
                 <div class="footer-phones clearfix">
-                    <a href="tel:+380980448288">
-                        +38 098 044 82 88
+                    <a href="javascript:">
+                        <?= Yii::$app->controller->contact['phone_1']; ?>
                     </a>
-                    <a href="tel:+380507652354">
-                        +38 050 765 23 54
+                    <a href="javascript:">
+                        <?= Yii::$app->controller->contact['phone_2']; ?>
                     </a>
                 </div>
                 <a href="javascript:" class="footer-mail">
-                    vartist@ukr.net
+                    <?= Yii::$app->controller->contact['email']; ?>
                 </a>
             </div>
             <a href="javascript:" class="to-top">Вверх</a>
         </div>
         <div class="footer-info clearfix">
             <div class="footer-info__copy">
-                © 2014—2017 «Вартість» проектне бюро, будівництво та архітектура
+                © 2000—<?= date('Y'); ?> «Мовитен» строительноство и ремонтные работы
             </div>
         </div>
     </div>

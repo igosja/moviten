@@ -8,6 +8,8 @@ return [
             'username' => 'igosja_moviten',
             'password' => 'oum4phodoKe2opa_',
             'charset' => 'utf8',
+            'schemaCache' => 'cache',
+            'schemaCacheDuration' => 3600,
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

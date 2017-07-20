@@ -4,11 +4,16 @@
  * @var $item \common\models\Portfolio
  */
 
+use common\models\HelperImage;
 use yii\helpers\Html;
 
 ?>
 <?= Html::a(
-    '<img src="/img/uslugi-page/uslugi-1.jpg" alt="">
+    '<img src="' . HelperImage::resize(
+        (isset($item['image'][0]['image_id']) ? $item['image'][0]['image_id'] : 0),
+        290,
+        290
+    ) . '" alt="' . $item['url'] . '">
     <div class="uslugi-b__i__in">
         <div class="uslugi-b__i__title">' . $item['url'] . '</div>
         <div class="uslugi-b__i__btn">Подробнее</div>

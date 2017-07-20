@@ -48,7 +48,11 @@ use yii\helpers\Html;
                         <?php foreach ($a_portfolio as $item) { ?>
                             <div>
                                 <?= Html::a(
-                                    '<img src="https://vartist.com.ua/uploads/cab/382/c98/70b48dfe3d7b6ba50772.jpg" alt="">',
+                                    '<img src="' . HelperImage::resize(
+                                        (isset($item['image'][0]['image_id']) ? $item['image'][0]['image_id'] : 0),
+                                        980,
+                                        600
+                                    ) . '" alt="' . $item['h1'] . '">',
                                     ['portfolio/view', 'id' => $item['url']]
                                 ); ?>
                                 <div class="slider__text"><?= $item['h1']; ?></div>

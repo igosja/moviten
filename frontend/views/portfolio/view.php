@@ -6,6 +6,7 @@
  * @var $o_prev \common\models\Portfolio
  */
 
+use common\models\HelperImage;
 use yii\helpers\Html;
 
 ?>
@@ -16,23 +17,27 @@ use yii\helpers\Html;
     </div>
     <div class="slider-out">
         <div class="slider clearfix">
-            <div><img src="/img/project-1.jpg" alt=""></div>
-            <div><img src="/img/project-2.jpg" alt=""></div>
-            <div><img src="/img/project-1.jpg" alt=""></div>
-            <div><img src="/img/project-2.jpg" alt=""></div>
-            <div><img src="/img/project-1.jpg" alt=""></div>
-            <div><img src="/img/project-2.jpg" alt=""></div>
+            <?php foreach ($o_portfolio['image'] as $item) { ?>
+                <div>
+                    <img
+                            src="<?= HelperImage::resize($item['image_id'], 980, 600); ?>"
+                            alt="<?= $o_portfolio['h1']; ?>"
+                    />
+                </div>
+            <?php } ?>
         </div>
         <a href="javascript:" class="next"></a>
         <a href="javascript:" class="prev"></a>
     </div>
     <div class="slider-nav">
-        <div><img src="/img/project-1.jpg" alt=""></div>
-        <div><img src="/img/project-2.jpg" alt=""></div>
-        <div><img src="/img/project-1.jpg" alt=""></div>
-        <div><img src="/img/project-2.jpg" alt=""></div>
-        <div><img src="/img/project-1.jpg" alt=""></div>
-        <div><img src="/img/project-2.jpg" alt=""></div>
+        <?php foreach ($o_portfolio['image'] as $item) { ?>
+            <div>
+                <img
+                        src="<?= HelperImage::resize($item['image_id'], 980, 600); ?>"
+                        alt="<?= $o_portfolio['h1']; ?>"
+                />
+            </div>
+        <?php } ?>
     </div>
     <div class="wrap">
         <?= $o_portfolio['text']; ?>

@@ -21,4 +21,25 @@ class Contact extends ActiveRecord
             [['seo_description', 'seo_keywords'], 'safe'],
         ];
     }
+
+    public function attributeLabels()
+    {
+        return [
+            'address_1' => 'Адрес (строка 1)',
+            'address_2' => 'Адрес (строка 2)',
+            'address_3' => 'Адрес (строка 3)',
+            'email' => 'Email',
+            'google_lat' => 'Первая координата Google карты',
+            'google_lng' => 'Вторая координата Google карты',
+            'h1' => 'Заголовок',
+            'phone_1' => 'Телефон 1',
+            'phone_2' => 'Телефон 2',
+            'shedule_mn' => 'Часы работы в будние',
+            'shedule_sn' => 'Часы работы в субботу',
+            'shedule_st' => 'Часы работы в воскресенье',
+            'seo_description' => 'SEO description',
+            'seo_keywords' => 'SEO keywords',
+            'seo_title' => 'SEO title',
+        ];
+    }
 }
