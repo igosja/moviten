@@ -22,6 +22,19 @@ class PortfolioCategory extends ActiveRecord
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'h1' => 'Заголовок',
+            'url' => 'ЧПУ',
+            'order' => 'Сортировка',
+            'status' => 'Статус',
+            'seo_description' => 'SEO description',
+            'seo_keywords' => 'SEO keywords',
+            'seo_title' => 'SEO title',
+        ];
+    }
+
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {

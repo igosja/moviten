@@ -19,4 +19,12 @@ class Resize extends ActiveRecord
             [['cut', 'height', 'image_id', 'width'], 'integer'],
         ];
     }
+
+    public function beforeDelete()
+    {
+        if (file_exists($_SERVER['DOCUMENT_ROOT'] . '/frontend/web' . $this['url'])) {
+            unlink($_SERVER['DOCUMENT_ROOT'] . '/frontend/web' . $this['url']);
+        }
+        return parent::beforeDelete();
+    }
 }

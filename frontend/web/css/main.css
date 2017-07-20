@@ -1074,7 +1074,6 @@ nav {
 
 .mab-b__form {
     width: 300px;
-    height: 490px;
     background: #fff;
     padding: 26px 30px 30px;
     box-sizing: border-box;
@@ -1631,60 +1630,82 @@ footer {
 }
 
 .errorMessage {
-    display: none!important;
+    display: none !important;
 }
 
-.m-best{
-  background: #f4f4f4;
-  padding-top: 37px;
-  padding-bottom: 30px;
+.m-best {
+    background: #f4f4f4;
+    padding-top: 37px;
+    padding-bottom: 30px;
 }
+
 .m-best .m-text__title {
-  color:#eec24b;
-}  
-.slider-main{
-  width: 100%;  
-  margin: 10px 0 20px;    
-  text-align: center;
+    color: #eec24b;
 }
-.slider-main .slick-slide img{
-  max-width: 580px;
-  outline:none!important;
-  margin:0 auto;
+
+.slider-main {
+    width: 100%;
+    margin: 10px 0 20px;
+    text-align: center;
 }
-.slider-main .slick-slide{
-  opacity: .6;
-  width:600px;
-  text-align: center;
+
+.slider-main .slick-slide img {
+    max-width: 580px;
+    outline: none !important;
+    margin: 0 auto;
 }
-.slider-main .slick-active{
-  display: block;
-  opacity: 1;
+
+.slider-main .slick-slide {
+    opacity: .6;
+    width: 600px;
+    text-align: center;
 }
-.slider-main .slider__text{
-  opacity:0;
-  font-size:14px;
-  color:#272727;
-  text-transform: uppercase;
-  font-weight: 900;
-  margin-top: 15px;
-  padding:0 20px;
+
+.slider-main .slick-active {
+    display: block;
+    opacity: 1;
+}
+
+.slider-main .slider__text {
+    opacity: 0;
+    font-size: 14px;
+    color: #272727;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-top: 15px;
+    padding: 0 20px;
 
 }
-.slider-main .slick-active .slider__text{
-  opacity:1;
+
+.slider-main .slick-active .slider__text {
+    opacity: 1;
 }
-.slider-main .slick-dots{
-  bottom: -35px;
+
+.slider-main .slick-dots {
+    bottom: -35px;
 }
-.slider-main .slick-dots li{
-  width: 12px;
-  height: 12px;
-  box-sizing:border-box;
-  border:1px solid #414141;
-  border-radius: 50%;
+
+.slider-main .slick-dots li {
+    width: 12px;
+    height: 12px;
+    box-sizing: border-box;
+    border: 1px solid #414141;
+    border-radius: 50%;
 }
-.slider-main .slick-dots li.slick-active{
-  display: inline-block;
-  background:#414141; 
+
+.slider-main .slick-dots li.slick-active {
+    display: inline-block;
+    background: #414141;
+}
+
+.error-page-p .code {
+    display: block;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 40px 0;
+}
+
+.help-block {
+    margin: 0;
+    font-size: 12px;
 }

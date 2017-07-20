@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\Image;
 use common\models\PageAbout;
 use Yii;
 use yii\web\NotFoundHttpException;
@@ -93,6 +94,10 @@ class PageaboutController extends BaseController
         if (!$model) {
             throw new NotFoundHttpException($this->not_found);
         }
+        $image = Image::findOne($model['image_id']);
+        if ($image) {
+            $image->delete();
+        }
         $model['image_id'] = 0;
         $model->save();
 
@@ -104,6 +109,10 @@ class PageaboutController extends BaseController
         $model = PageAbout::findOne($id);
         if (!$model) {
             throw new NotFoundHttpException($this->not_found);
+        }
+        $image = Image::findOne($model['team_1']);
+        if ($image) {
+            $image->delete();
         }
         $model['team_1'] = 0;
         $model->save();
@@ -117,6 +126,10 @@ class PageaboutController extends BaseController
         if (!$model) {
             throw new NotFoundHttpException($this->not_found);
         }
+        $image = Image::findOne($model['team_2']);
+        if ($image) {
+            $image->delete();
+        }
         $model['team_2'] = 0;
         $model->save();
 
@@ -129,6 +142,10 @@ class PageaboutController extends BaseController
         if (!$model) {
             throw new NotFoundHttpException($this->not_found);
         }
+        $image = Image::findOne($model['team_3']);
+        if ($image) {
+            $image->delete();
+        }
         $model['team_3'] = 0;
         $model->save();
 
@@ -140,6 +157,10 @@ class PageaboutController extends BaseController
         $model = PageAbout::findOne($id);
         if (!$model) {
             throw new NotFoundHttpException($this->not_found);
+        }
+        $image = Image::findOne($model['team_4']);
+        if ($image) {
+            $image->delete();
         }
         $model['team_4'] = 0;
         $model->save();

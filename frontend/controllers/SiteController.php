@@ -2,15 +2,32 @@
 
 namespace frontend\controllers;
 
+use common\models\Contact;
 use common\models\PageMain;
 use common\models\Portfolio;
 use common\models\Service;
 use common\models\Slide;
+use frontend\models\OrderForm;
+use Yii;
 
 class SiteController extends BaseController
 {
     public function actionIndex()
     {
+        $model = new OrderForm();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $email = Contact::find()->select(['email'])->where(['id' => 1])->one();
+            if ($email) {
+                $email = $email['email'];
+            }
+            if ($email) {
+                $model->sendEmail($email);
+            }
+            Yii::$app->session->setFlash('thanks', true);
+            return $this->refresh();
+        }
+
         $o_page = PageMain::findOne(1);
 
         $this->view->title = $o_page['seo_title'];

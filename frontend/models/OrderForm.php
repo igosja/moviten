@@ -5,7 +5,7 @@ namespace frontend\models;
 use Yii;
 use yii\base\Model;
 
-class ContactForm extends Model
+class OrderForm extends Model
 {
     public $name;
     public $phone;
@@ -15,8 +15,9 @@ class ContactForm extends Model
     public function rules()
     {
         return [
-            [['name', 'phone', 'text'], 'required'],
+            [['name', 'phone'], 'required'],
             [['email'], 'email'],
+            [['text'], 'safe'],
         ];
     }
 
@@ -39,7 +40,7 @@ class ContactForm extends Model
         return Yii::$app->mailer->compose()
             ->setTo($email)
             ->setFrom([$this->email => $this->name])
-            ->setSubject('Заказ обратной связи с сайта Мовитен')
+            ->setSubject('Заказ услуги с сайта Мовитен')
             ->setTextBody($this->text)
             ->send();
     }

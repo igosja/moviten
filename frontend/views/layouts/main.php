@@ -1,12 +1,20 @@
 <?php
 
-/* @var $content string */
-/* @var $this \yii\web\View */
+/**
+ * @var $content string
+ * @var $this \yii\web\View
+ */
 
+use common\models\Contact;
+use frontend\models\OrderForm;
 use frontend\assets\AppAsset;
 use yii\helpers\Html;
+use yii\widgets\ActiveForm;
 
 AppAsset::register($this);
+
+$contact = Contact::findOne(1);
+$model = new OrderForm();
 
 ?>
 <?php $this->beginPage() ?>
@@ -41,16 +49,16 @@ AppAsset::register($this);
                 ); ?>
                 <div class="header-phones">
                     <a href="javascript:">
-                        <?= Yii::$app->controller->contact['phone_1']; ?>
+                        <?= $contact['phone_1']; ?>
                     </a>
                     <a href="javascript:">
-                        <?= Yii::$app->controller->contact['phone_2']; ?>
+                        <?= $contact['phone_2']; ?>
                     </a>
                 </div>
                 <div class="header-top__right clearfix">
                     <div class="header-email">
                         E-mail:
-                        <a href="javascript:"><?= Yii::$app->controller->contact['email']; ?></a>
+                        <a href="javascript:"><?= $contact['email']; ?></a>
                     </div>
                     <a href="javascript:" data-selector="form-order" class="header-offer overlayElementTrigger">
                         Заказать услугу
@@ -78,14 +86,14 @@ AppAsset::register($this);
             <div class="footer-contacts clearfix">
                 <div class="footer-phones clearfix">
                     <a href="javascript:">
-                        <?= Yii::$app->controller->contact['phone_1']; ?>
+                        <?= $contact['phone_1']; ?>
                     </a>
                     <a href="javascript:">
-                        <?= Yii::$app->controller->contact['phone_2']; ?>
+                        <?= $contact['phone_2']; ?>
                     </a>
                 </div>
                 <a href="javascript:" class="footer-mail">
-                    <?= Yii::$app->controller->contact['email']; ?>
+                    <?= $contact['email']; ?>
                 </a>
             </div>
             <a href="javascript:" class="to-top">Вверх</a>
@@ -102,56 +110,48 @@ AppAsset::register($this);
     <div class="wrap">
         <div class="of-form form-order clearfix">
             <a href="javascript:" class="of-close"></a>
-            <form id="yw0" action="/" method="post">
-                <div class="of-form__title">Замовити послуги</div>
-                <div class="of-wrap clearfix">
-                    <div class="need">
-                        <input class="of-input of-input_name" placeholder="Ваше ім’я" name="Order[name]" id="Order_name"
-                               type="text" maxlength="255"/>
-                        <div class="errorMessage" id="Order_name_em_" style="display:none"></div>
-                    </div>
-                    <div class="need">
-                        <input class="of-input of-input_phone phone_mask" placeholder="Телефон" name="Order[telephone]"
-                               id="Order_telephone" type="text"/>
-                        <div class="errorMessage" id="Order_telephone_em_" style="display:none"></div>
-                    </div>
-                    <div>
-                        <input class="of-input of-input_email" placeholder="E-mail" name="Order[email]" id="Order_email"
-                               type="text"/>
-                        <div class="errorMessage" id="Order_email_em_" style="display:none"></div>
-                    </div>
-                    <div class="jqui-select need">
-                        <select name="Order[service]" id="Order_service">
-                            <option value="Проетирование">Проектування</option>
-                            <option value="Обследование и усиление конструкций ">Обстеження і підсилення конструкцій
-                            </option>
-                            <option value="Консалтинг в сфере строительства">Консалтінг в сфері будівництва</option>
-                            <option value="Оценка недвижимости">Оцінка нерухомості</option>
-                            <option value="Управление проектами">Управління проектами</option>
-                            <option value="Научно-исследовательские работы">Науково-дослідні роботи</option>
-                            <option value="Разработка нормативной документации">Розробка нормативної документації
-                            </option>
-                            <option value="Термоаудит">Термоаудит</option>
-                        </select>
-                        <div class="errorMessage" id="Order_service_em_" style="display:none"></div>
-                    </div>
-                    <textarea class="of-form__textarea" placeholder="Коментар" name="Order[text]"
-                              id="Order_text"></textarea>
-                    <div class="errorMessage" id="Order_text_em_" style="display:none"></div>
-                    <div class="of-form__text"><span></span>Поля, обов’язкові для заповнення</div>
-                    <a href="javascript:" class="of-submit of-submit-form">
-                        Замовити
-                    </a>
+            <?php $form = ActiveForm::begin([
+                'action' => ['site/index'],
+                'fieldConfig' => ['template' => "{input}{error}"],
+            ]); ?>
+            <div class="of-form__title">Заказ услуги</div>
+            <div class="of-wrap clearfix">
+                <div class="need">
+                    <?= $form->field($model, 'name')->textInput(
+                        ['class' => 'of-input of-input_name', 'placeholder' => 'Ваше имя']
+                    ); ?>
                 </div>
-            </form>
-        </div>
-        <div class="of-form form-thanks clearfix">
-            <a href="javascript:;" class="of-close"></a href="">
-            <div class="of-form__thanks">
-                <span>Дякуємо</span><br>
-                Ми з Вами зв’яжемось<br>найближчим часом
+                <div class="need">
+                    <?= $form->field($model, 'phone')->textInput(
+                        ['class' => 'of-input of-input_phone phone_mask', 'placeholder' => 'Телефон']
+                    ); ?>
+                </div>
+                <div>
+                    <?= $form->field($model, 'email')->textInput(
+                        ['class' => 'of-input of-input_email', 'placeholder' => 'Email']
+                    ); ?>
+                </div>
+                <?= $form->field($model, 'text')->textarea(
+                    ['class' => 'of-form__textarea', 'placeholder' => 'Коментарий']
+                ); ?>
+                <div class="of-form__text"><span></span>Поля, обязательные для заполнения</div>
+                <?= Html::submitButton('', ['class' => 'hidden', 'id' => 'submit-button-service']); ?>
+                <a href="javascript:" class="of-submit of-submit-form">
+                    Заказать
+                </a>
             </div>
+            <?php ActiveForm::end(); ?>
         </div>
+        <?php if (Yii::$app->session->hasFlash('thanks')) { ?>
+        <?php Yii::$app->session->getFlash('thanks'); ?>
+            <div class="of-form form-thanks clearfix" id="form-success">
+                <a href="javascript:" class="of-close"></a>
+                <div class="of-form__thanks">
+                    <span>Спасибо</span><br>
+                    Ми с Вами свяжемся<br>в ближаещее время
+                </div>
+            </div>
+        <?php } ?>
     </div>
 </section>
 <?php $this->endBody() ?>

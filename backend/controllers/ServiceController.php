@@ -3,6 +3,7 @@
 namespace backend\controllers;
 
 use backend\models\ServiceSearch;
+use common\models\Image;
 use common\models\Service;
 use Yii;
 use yii\web\NotFoundHttpException;
@@ -100,6 +101,10 @@ class ServiceController extends BaseController
         $model = Service::findOne($id);
         if (!$model) {
             throw new NotFoundHttpException($this->not_found);
+        }
+        $image = Image::findOne($model['image_id']);
+        if ($image) {
+            $image->delete();
         }
         $model['image_id'] = 0;
         $model->save();

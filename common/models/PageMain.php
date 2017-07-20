@@ -15,7 +15,17 @@ class PageMain extends ActiveRecord
     {
         return [
             [['seo_title'], 'string', 'max' => 255],
-            [['text', 'text_3', 'seo_description', 'seo_keywords'], 'safe'],
+            [['text', 'seo_description', 'seo_keywords'], 'safe'],
+        ];
+    }
+
+    public function attributeLabels()
+    {
+        return [
+            'text' => 'Текст',
+            'seo_description' => 'SEO description',
+            'seo_keywords' => 'SEO keywords',
+            'seo_title' => 'SEO title',
         ];
     }
 }

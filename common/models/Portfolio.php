@@ -29,6 +29,22 @@ class Portfolio extends ActiveRecord
         ];
     }
 
+    public function attributeLabels()
+    {
+        return [
+            'h1' => 'Заголовок',
+            'portfoliocategory_id' => 'Категория',
+            'text' => 'Текст',
+            'url' => 'ЧПУ',
+            'upload_image' => 'Изображения',
+            'order' => 'Сортировка',
+            'status' => 'Статус',
+            'seo_description' => 'SEO description',
+            'seo_keywords' => 'SEO keywords',
+            'seo_title' => 'SEO title',
+        ];
+    }
+
     public function beforeSave($insert)
     {
         if (parent::beforeSave($insert)) {

@@ -108,6 +108,15 @@ use yii\widgets\DetailView;
                 [
                     'class' => 'yii\grid\ActionColumn',
                     'headerOptions' => ['class' => 'col-lg-1'],
+                    'template' => '{delete}',
+                    'urlCreator' => function ($action, $model, $key, $index) {
+                        if ($action === 'delete') {
+                            $url = Url::to(['portfolioimage/delete', 'id' => $model['id']]);
+                            $asdf = 'index.php?r=client-login/lead-delete&id='.$model->id;
+                            return $url;
+                        }
+                        return '';
+                    }
                 ]
             ];
 

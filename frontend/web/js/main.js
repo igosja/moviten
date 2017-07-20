@@ -89,69 +89,11 @@ jQuery(document).ready(function ($) {
     $(".clearfix-footer").css({'height': footerHeight});
 
     $(".of-submit-form").click(function() {
-        console.log(1);
-        var name = $(this).parents().children('.need').children(".of-input_name");
-        if($.trim(name.val()) == "") {
-            name.addClass("form_error");
-            return false;
-        }
-        else{
-            name.removeClass("form_error");
-        }
-
-        var phone = $(this).parents().children('.need').children(".of-input_phone");
-        if($.trim(phone.val()) == "") {
-            phone.addClass("form_error");
-            return false;
-        }
-        else{
-            phone.removeClass("form_error");
-        }
-        /*
-         var email = $(this).parents().children(".of-input_email");
-         if($.trim(email.val()) == "") {
-         email.addClass("form_error");
-         return false;
-         }
-         else{
-         email.removeClass("form_error");
-         }*/
-
-        $(this).closest('form').submit();
-
+        $('#submit-button-service').trigger('click');
     });
 
     $(".of-submit__contacts").click(function() {
-        console.log(1);
-        var name = $(this).parents().children('.need').children(".of-input_name");
-        if($.trim(name.val()) == "") {
-            name.addClass("form_error");
-            return false;
-        }
-        else{
-            name.removeClass("form_error");
-        }
-
-        var phone = $(this).parents().children('.need').children(".of-input_phone");
-        if($.trim(phone.val()) == "") {
-            phone.addClass("form_error");
-            return false;
-        }
-        else{
-            phone.removeClass("form_error");
-        }
-
-        var mess = $(this).parents().children('.need').children(".of-form__textarea");
-        if($.trim(mess.val()) == "") {
-            mess.addClass("form_error");
-            return false;
-        }
-        else{
-            mess.removeClass("form_error");
-        }
-
-        $(this).closest('form').submit();
-
+        $('#submit-button-contact').trigger('click');
     });
 
     $(".phone_mask").mask("(999) 999-99-99");

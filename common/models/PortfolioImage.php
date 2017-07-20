@@ -28,6 +28,14 @@ class PortfolioImage extends ActiveRecord
         ];
     }
 
+    public function beforeDelete()
+    {
+        if ($this['image']) {
+            $this['image']->delete();
+        }
+        return parent::beforeDelete();
+    }
+
     public function getImage()
     {
         return $this->hasOne(Image::className(), ['id' => 'image_id']);

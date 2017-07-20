@@ -4,9 +4,26 @@ namespace backend\controllers;
 
 use common\models\PortfolioImage;
 use Yii;
+use yii\web\NotFoundHttpException;
 
 class PortfolioimageController extends BaseController
 {
+    public $not_found = 'Изображение не найдено';
+
+    public function actionDelete($id)
+    {
+        $model = PortfolioImage::findOne($id);
+        if (!$model) {
+            throw new NotFoundHttpException($this->not_found);
+        }
+        $portfolio_id = $model['portfolio_id'];
+
+        $model->delete();
+
+        Yii::$app->session->setFlash('success', $this->saved);
+        return $this->redirect(['portfolio/view', 'id' => $portfolio_id]);
+    }
+
     public function actionStatus($id)
     {
         $model = PortfolioImage::findOne($id);
