@@ -18,7 +18,7 @@ class AppAsset extends AssetBundle
         '//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css',
     ];
     public $js = [
-        '//maps.googleapis.com/maps/api/js?key=AIzaSyAYBg8KC7jzGXqsJO4ZvBUBr-zHT_0qm2s&callback=initMap',
+        '//maps.googleapis.com/maps/api/js?key=AIzaSyAYBg8KC7jzGXqsJO4ZvBUBr-zHT_0qm2s&callback',
         'js/vendor/modernizr-2.6.2-respond-1.1.0.min.js',
         'js/vendor/libs.js',
         'js/main.js',
