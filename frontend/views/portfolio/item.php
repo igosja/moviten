@@ -15,7 +15,7 @@ use yii\helpers\Html;
         290
     ) . '" alt="' . $item['url'] . '">
     <div class="uslugi-b__i__in">
-        <div class="uslugi-b__i__title">' . $item['url'] . '</div>
+        <div class="uslugi-b__i__title">' . $item['h1'] . '</div>
         <div class="uslugi-b__i__btn">Подробнее</div>
     </div>',
     ['view', 'id' => $item['url']],
