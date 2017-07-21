@@ -34,8 +34,8 @@ use yii\helpers\Html;
             <?= $form->field($model, 'phone_1')->textInput(); ?>
             <?= $form->field($model, 'phone_2')->textInput(); ?>
             <?= $form->field($model, 'shedule_mn')->textInput(); ?>
-            <?= $form->field($model, 'shedule_sn')->textInput(); ?>
             <?= $form->field($model, 'shedule_st')->textInput(); ?>
+            <?= $form->field($model, 'shedule_sn')->textInput(); ?>
             <?= $form->field($model, 'seo_title')->textInput(); ?>
             <?= $form->field($model, 'seo_description')->textarea(); ?>
             <?= $form->field($model, 'seo_keywords')->textarea(); ?>
