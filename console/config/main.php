@@ -26,6 +26,11 @@ return [
                 ],
             ],
         ],
+        'urlManager' => [
+            'baseUrl' => 'https://moviten.com.ua/',
+            'hostInfo' => 'https://moviten.com.ua/',
+            'scriptUrl' => 'https://moviten.com.ua/',
+        ],
     ],
     'params' => $params,
 ];
