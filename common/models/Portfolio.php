@@ -67,7 +67,7 @@ class Portfolio extends ActiveRecord
 
     public function getImage()
     {
-        return $this->hasMany(PortfolioImage::className(), ['portfolio_id' => 'id']);
+        return $this->hasMany(PortfolioImage::className(), ['portfolio_id' => 'id'])->orderBy('`order`');
     }
 
     /**
