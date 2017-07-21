@@ -244,6 +244,14 @@
 	  left: auto;
 	  right: auto;
 	}
+	.footer-info__maks {
+	  float: none;
+	  width:230px;
+	  margin:15px auto 0; 
+	}
+	.footer-info__maks div {
+	  margin-top: 3px;
+	}
 
 	.of-form {
 	  width: 280px;
@@ -378,6 +386,9 @@
 	  margin-bottom: 20px;
 	  float: none;
 	  margin-left: -12px;
+	}
+	.jqui-lang{
+		margin-right: 12px;
 	}
 	nav{
 		padding:10px 0 0;
