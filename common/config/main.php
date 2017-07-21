@@ -16,11 +16,4 @@ return [
     ],
     'language' => 'ru-RU',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'on beforeRequest' => function () {
-        $pathInfo = Yii::$app->request->pathInfo;
-        if (!empty($pathInfo) && substr($pathInfo, -1) === '/') {
-            Yii::$app->response->redirect('/' . substr(rtrim($pathInfo), 0, -1), 301)->send();
-            Yii::$app->end();
-        }
-    },
 ];
