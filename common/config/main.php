@@ -16,13 +16,7 @@ return [
     ],
     'language' => 'ru-RU',
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
-    'on beforeRequest' => function ($event) {
-        if(!Yii::$app->request->isSecureConnection) {
-            $url = Yii::$app->request->getAbsoluteUrl();
-            $url = str_replace('http:', 'https://', $url);
-            Yii::$app->getResponse()->redirect($url);
-            Yii::$app->end();
-        }
+    'on beforeRequest' => function () {
         $pathInfo = Yii::$app->request->pathInfo;
         if (!empty($pathInfo) && substr($pathInfo, -1) === '/') {
             Yii::$app->response->redirect('/' . substr(rtrim($pathInfo), 0, -1), 301)->send();
