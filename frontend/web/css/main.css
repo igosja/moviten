@@ -1350,7 +1350,7 @@ footer {
 }
 
 .footer-info__copy {
-    position: absolute;
+    position: relative;
     top: 25px;
     left: 0;
     right: 0;
