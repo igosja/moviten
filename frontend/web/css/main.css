@@ -56,6 +56,7 @@ a {
 }
 
 a:hover {
+    color: #eaab00;
     text-decoration: none;
 }
 
@@ -1309,6 +1310,7 @@ footer {
 }
 
 .footer-mail:hover {
+    color: #f4f4f4;
     text-decoration: none;
 }
 
@@ -1340,6 +1342,7 @@ footer {
 }
 
 .to-top:hover {
+    color: #8e8e8e;
     text-decoration: none;
     background: url(../img/to-top-hover.png) right top no-repeat;
 }
