@@ -1,6 +1,11 @@
 <?php
 
 return [
+    'aliases' => [
+        '@bower' => '@vendor/bower-asset',
+        '@npm' => '@vendor/npm-asset',
+        '@runtime' => '@frontend/runtime',
+    ],
     'components' => [
         'assetManager' => [
             'appendTimestamp' => true,
